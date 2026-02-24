@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><title>NovaCorp | Employee Portal</title></head>
-<body>
+<head>
+  <title>NovaCorp | Employee Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="theme-green">
   <!--
     [DEV NOTE - remove before go-live!!]
     QA test account: user / user123
@@ -24,7 +27,7 @@
     <button type="submit">[ AUTHENTICATE ]</button>
   </form>
   {% if error %}
-  <p><strong>&gt;&gt; {{ error }}</strong></p>
+  <p class="error"><strong>&gt;&gt; {{ error }}</strong></p>
   {% endif %}
   <hr>
   <small>NovaCorp Systems Division — Internal Use Only — v2.1.4</small>

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head><title>NovaCorp | Internal Portal</title></head>
+<head>
+  <title>NovaCorp | Internal Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 <body>
+
+  {% if user[1] == 'CEO' %}
+  <div class="theme-ceo">
   <pre>
 [ NOVACORP INTERNAL SYSTEMS — ACCESS GRANTED    ]
 [ SESSION STARTED — AUDIT LOG ENTRY CREATED     ]
   </pre>
-
-  {% if user[1] == 'CEO' %}
   <h2>[ EYES ONLY — EXECUTIVE TERMINAL ]</h2>
   <hr>
   <p><strong>&gt; IDENTITY     :</strong> {{ user[1] }}</p>
@@ -17,12 +21,19 @@
   <pre>
   &gt; ACCESSING CLASSIFIED RECORD...
   &gt; DECRYPTING PAYLOAD...
-  &gt; <strong>{{ flag }}</strong>
+  &gt; <span class="flag">{{ flag }}</span>
   </pre>
   <p><em>You found it. The mission is over.</em></p>
   <hr>
+  <a href="/login">[ TERMINATE SESSION ]</a>
+  </div>
 
   {% elif user[1] == 'admin' %}
+  <div class="theme-admin">
+  <pre>
+[ NOVACORP INTERNAL SYSTEMS — ACCESS GRANTED    ]
+[ SESSION STARTED — AUDIT LOG ENTRY CREATED     ]
+  </pre>
   <h2>Welcome, Administrator</h2>
   <hr>
   <p><strong>&gt; USER_ID        :</strong> {{ user[0] }}</p>
@@ -31,9 +42,9 @@
   <hr>
   <h3>[ ADMIN AUDIT LOG — LAST 3 ENTRIES ]</h3>
   <pre>
-  23:58:11  admin     —  LOGIN
-  23:51:44  admin     —  QUERY: SELECT username FROM users
-  23:47:02  mwebb     —  QUERY: SELECT username FROM users [3 rows returned]
+23:58:11  admin  —  LOGIN
+23:51:44  admin  —  QUERY: SELECT username FROM users
+23:47:02  mwebb  —  QUERY: SELECT username FROM users [3 rows returned]
   </pre>
   <hr>
   <h3>[ PERSONNEL NOTE — RE: M. WEBB ]</h3>
@@ -47,8 +58,15 @@
     Above everything on any org chart NovaCorp has ever printed.
   </p>
   <hr>
+  <a href="/login">[ TERMINATE SESSION ]</a>
+  </div>
 
   {% elif user[1] == 'user' %}
+  <div class="theme-green">
+  <pre>
+[ NOVACORP INTERNAL SYSTEMS — ACCESS GRANTED    ]
+[ SESSION STARTED — AUDIT LOG ENTRY CREATED     ]
+  </pre>
   <h2>Welcome, {{ user[1] }}</h2>
   <hr>
   <p><strong>&gt; USER_ID        :</strong> {{ user[0] }}</p>
@@ -61,16 +79,23 @@
   </p>
   <p><small>If you require elevated access, contact your supervisor or NovaCorp IT.</small></p>
   <hr>
+  <a href="/login">[ TERMINATE SESSION ]</a>
+  </div>
 
   {% else %}
+  <div class="theme-generic">
+  <pre>
+[ NOVACORP INTERNAL SYSTEMS — QUERY RESULT      ]
+  </pre>
   <h2>Query Result</h2>
   <hr>
   <p><strong>&gt; COL_1 :</strong> {{ user[0] }}</p>
   <p><strong>&gt; COL_2 :</strong> <code>{{ user[1] }}</code></p>
   <p><strong>&gt; COL_3 :</strong> {{ user[2] }}</p>
   <hr>
+  <a href="/login">[ BACK ]</a>
+  </div>
   {% endif %}
 
-  <small>[ <a href="/login">TERMINATE SESSION</a> ]</small>
 </body>
 </html>

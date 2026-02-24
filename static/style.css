@@ -1,0 +1,141 @@
+/* ── Base ── */
+* { box-sizing: border-box; }
+body {
+  background: #0a0a0a;
+  font-family: 'Courier New', monospace;
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+p    { margin: 0 0 14px 0; line-height: 1.75; }
+h2   { margin: 0 0 20px 0; }
+h3   { margin: 24px 0 10px 0; }
+pre  { margin: 0 0 20px 0; line-height: 1.6; }
+hr   { border: none; border-top: 1px solid; margin: 20px 0; }
+small { color: #555; }
+code  { font-family: 'Courier New', monospace; }
+
+/* ── Shared link/button style ── */
+a, button {
+  font-family: 'Courier New', monospace;
+  font-size: 1em;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid;
+  padding: 8px 18px;
+  display: inline-block;
+  background: transparent;
+}
+
+/* ── Form inputs ── */
+input {
+  background: #111;
+  color: #00ff41;
+  border: 1px solid #00ff41;
+  padding: 8px 10px;
+  width: 100%;
+  font-family: 'Courier New', monospace;
+  font-size: 1em;
+  outline: none;
+}
+input:focus { border-color: #ffffff; }
+
+/* ════════════════════════════════
+   GREEN  — splash / login / user
+   ════════════════════════════════ */
+.theme-green {
+  color: #00ff41;
+}
+.theme-green hr   { border-color: #00ff4133; }
+.theme-green pre  { color: #00ff41; }
+.theme-green h2   { color: #ffffff; }
+.theme-green strong { color: #aaffaa; }
+.theme-green em   { color: #aaffaa; }
+.theme-green code { color: #00ff41; }
+.theme-green blockquote {
+  border-left: 3px solid #00ff41;
+  margin: 16px 0;
+  padding-left: 16px;
+  color: #aaffaa;
+}
+.theme-green label { color: #aaffaa; font-size: 0.85em; }
+.theme-green a,
+.theme-green button {
+  color: #00ff41;
+  border-color: #00ff41;
+}
+.theme-green a:hover,
+.theme-green button:hover {
+  background: #00ff41;
+  color: #0a0a0a;
+}
+.theme-green button { width: 100%; margin-top: 10px; }
+.error { color: #ff4444; }
+
+/* ════════════════════════════════
+   AMBER  — admin
+   ════════════════════════════════ */
+.theme-admin {
+  color: #ffb300;
+}
+.theme-admin hr     { border-color: #ffb30033; }
+.theme-admin pre    { color: #ffb300; }
+.theme-admin h2,
+.theme-admin h3     { color: #ffffff; }
+.theme-admin strong { color: #ffe082; }
+.theme-admin em     { color: #ffe082; }
+.theme-admin code   { color: #ffb300; }
+.theme-admin a {
+  color: #ffb300;
+  border-color: #ffb300;
+}
+.theme-admin a:hover {
+  background: #ffb300;
+  color: #0a0a0a;
+}
+
+/* ════════════════════════════════
+   RED  — CEO
+   ════════════════════════════════ */
+.theme-ceo {
+  color: #ff4444;
+}
+.theme-ceo hr     { border-color: #ff444433; }
+.theme-ceo pre    { color: #ff4444; }
+.theme-ceo h2     { color: #ffffff; }
+.theme-ceo strong { color: #ff8888; }
+.theme-ceo em     { color: #ff8888; }
+.theme-ceo .flag {
+  color: #ffffff;
+  background: #ff0000;
+  padding: 4px 10px;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+.theme-ceo a {
+  color: #ff4444;
+  border-color: #ff4444;
+}
+.theme-ceo a:hover {
+  background: #ff4444;
+  color: #0a0a0a;
+}
+
+/* ════════════════════════════════
+   CYAN  — generic UNION output
+   ════════════════════════════════ */
+.theme-generic {
+  color: #00cfff;
+}
+.theme-generic hr   { border-color: #00cfff33; }
+.theme-generic pre  { color: #00cfff; }
+.theme-generic h2   { color: #ffffff; }
+.theme-generic code { color: #00cfff; }
+.theme-generic a {
+  color: #00cfff;
+  border-color: #00cfff;
+}
+.theme-generic a:hover {
+  background: #00cfff;
+  color: #0a0a0a;
+}
