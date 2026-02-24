@@ -1,7 +1,76 @@
 <!DOCTYPE html>
 <html>
+<head><title>NovaCorp | Internal Portal</title></head>
 <body>
-<h2>Welcome {{ user[1] }}</h2>
-<p>User ID: {{ user[0] }}</p>
+  <pre>
+[ NOVACORP INTERNAL SYSTEMS — ACCESS GRANTED    ]
+[ SESSION STARTED — AUDIT LOG ENTRY CREATED     ]
+  </pre>
+
+  {% if user[1] == 'CEO' %}
+  <h2>[ EYES ONLY — EXECUTIVE TERMINAL ]</h2>
+  <hr>
+  <p><strong>&gt; IDENTITY     :</strong> {{ user[1] }}</p>
+  <p><strong>&gt; CLEARANCE    :</strong> OMEGA (MAXIMUM)</p>
+  <hr>
+  <p>Webb made it here. This is what he found buried at the top of the chain.</p>
+  <pre>
+  &gt; ACCESSING CLASSIFIED RECORD...
+  &gt; DECRYPTING PAYLOAD...
+  &gt; <strong>{{ flag }}</strong>
+  </pre>
+  <p><em>You found it. The mission is over.</em></p>
+  <hr>
+
+  {% elif user[1] == 'admin' %}
+  <h2>Welcome, Administrator</h2>
+  <hr>
+  <p><strong>&gt; USER_ID        :</strong> {{ user[0] }}</p>
+  <p><strong>&gt; USERNAME       :</strong> {{ user[1] }}</p>
+  <p><strong>&gt; CLEARANCE      :</strong> ALPHA-2 (CLASSIFIED)</p>
+  <hr>
+  <h3>[ ADMIN AUDIT LOG — LAST 3 ENTRIES ]</h3>
+  <pre>
+  23:58:11  admin     —  LOGIN
+  23:51:44  admin     —  QUERY: SELECT username FROM users
+  23:47:02  mwebb     —  QUERY: SELECT username FROM users [3 rows returned]
+  </pre>
+  <hr>
+  <h3>[ PERSONNEL NOTE — RE: M. WEBB ]</h3>
+  <p>
+    Webb was never on the org chart.<br>
+    When he queried <code>users</code>, it came back with <strong>3 rows</strong>.<br>
+    HR only knows about 2 accounts. Nobody knows who the third one belongs to.
+  </p>
+  <p>
+    Whatever that account is — it sits <em>above</em> this entire org. Above admin.<br>
+    Above everything on any org chart NovaCorp has ever printed.
+  </p>
+  <hr>
+
+  {% elif user[1] == 'user' %}
+  <h2>Welcome, {{ user[1] }}</h2>
+  <hr>
+  <p><strong>&gt; USER_ID        :</strong> {{ user[0] }}</p>
+  <p><strong>&gt; USERNAME       :</strong> {{ user[1] }}</p>
+  <p><strong>&gt; CLEARANCE      :</strong> STANDARD</p>
+  <hr>
+  <p>
+    Your access level does not permit viewing classified records.<br>
+    <strong>Admin accounts have elevated clearance and access to restricted personnel files.</strong>
+  </p>
+  <p><small>If you require elevated access, contact your supervisor or NovaCorp IT.</small></p>
+  <hr>
+
+  {% else %}
+  <h2>Query Result</h2>
+  <hr>
+  <p><strong>&gt; COL_1 :</strong> {{ user[0] }}</p>
+  <p><strong>&gt; COL_2 :</strong> <code>{{ user[1] }}</code></p>
+  <p><strong>&gt; COL_3 :</strong> {{ user[2] }}</p>
+  <hr>
+  {% endif %}
+
+  <small>[ <a href="/login">TERMINATE SESSION</a> ]</small>
 </body>
 </html>

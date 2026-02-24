@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html>
+<head><title>NovaCorp | Employee Portal</title></head>
 <body>
-<form method="post">
-<input name="username" placeholder="username">
-<input name="password" placeholder="password">
-<button type="submit">Login</button>
-</form>
+  <!--
+    [DEV NOTE - remove before go-live!!]
+    QA test account: user / user123
+    DO NOT use admin creds in test env
+  -->
+  <pre>
+[ NOVACORP INTERNAL SYSTEMS — RESTRICTED ACCESS ]
+[ CONNECTION ENCRYPTED — TLS 1.2                ]
+[ ALL SESSIONS LOGGED AND AUDITED               ]
+  </pre>
+  <h2>Employee Authentication</h2>
+  <p><small>This portal is restricted to authorized NovaCorp personnel.<br>
+  Unauthorized access attempts are reported to NovaCorp Security Division.</small></p>
+  <hr>
+  <form method="post">
+    <label>Employee ID / Username</label><br>
+    <input name="username" placeholder="e.g. mwebb" autocomplete="off"><br><br>
+    <label>Password</label><br>
+    <input name="password" placeholder="••••••••" type="password"><br><br>
+    <button type="submit">[ AUTHENTICATE ]</button>
+  </form>
+  {% if error %}
+  <p><strong>&gt;&gt; {{ error }}</strong></p>
+  {% endif %}
+  <hr>
+  <small>NovaCorp Systems Division — Internal Use Only — v2.1.4</small>
 </body>
 </html>
