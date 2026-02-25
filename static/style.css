@@ -3,9 +3,10 @@
 body {
   background: #0a0a0a;
   font-family: 'Courier New', monospace;
-  max-width: 700px;
-  margin: 60px auto;
-  padding: 0 20px;
+  max-width: 1000px;
+  width: 90%;
+  margin: 40px auto;
+  padding: 0 40px;
 }
 p    { margin: 0 0 14px 0; line-height: 1.75; }
 h2   { margin: 0 0 20px 0; }
@@ -28,6 +29,9 @@ a, button {
 }
 
 /* ── Form inputs ── */
+form {
+  max-width: 420px;
+}
 input {
   background: #111;
   color: #00ff41;
